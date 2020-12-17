@@ -1,4 +1,5 @@
 <template>
+	<!-- index page -->
 	<view class="page">
 		<uni-head></uni-head>
 	</view>

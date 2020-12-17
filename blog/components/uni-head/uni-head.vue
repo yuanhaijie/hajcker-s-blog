@@ -1,4 +1,5 @@
 <template>
+	<!-- head component -->
 	<view class="head">
 		<text class="login" @click="toLogin">login</text>
 	</view>

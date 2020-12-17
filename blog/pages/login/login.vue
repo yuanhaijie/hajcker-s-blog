@@ -1,4 +1,5 @@
 <template>
+	<!-- login page -->
 	<view class="page">
 		<form class="login" @submit="formSubmit" @reset="formReset">
 		    <view class="title">
