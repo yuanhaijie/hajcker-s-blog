@@ -3,7 +3,7 @@
 	<view class="page">
 		<form class="login" @submit="formSubmit" @reset="formReset">
 		    <view class="title">
-		    	用户登录
+		    	user login
 		    </view>
 		</form>
 	</view>
