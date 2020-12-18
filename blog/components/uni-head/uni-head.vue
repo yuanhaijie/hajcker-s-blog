@@ -26,6 +26,7 @@
 .head {
 	width: 100vw;
 	height: 10vh;
-	box-shadow: 0 5px 5px #C0C0C0;
+	box-shadow: 0 1px 10px #FFFFFF;
+	color: #FFFFFF;
 }
 </style>
