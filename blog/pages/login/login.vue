@@ -1,11 +1,25 @@
 <template>
 	<!-- login page -->
 	<view class="page">
-		<form class="login" @submit="formSubmit" @reset="formReset">
+		<view class="login">
 		    <view class="title">
 		    	user login
 		    </view>
-		</form>
+			<view class="user-login account">
+				<input type="text" v-model="username" placeholder="account plz" placeholder-style="color:#FFFFFF"/>
+			</view>
+			<view class="user-login password">
+				<input type="password" v-model="password" placeholder="password plz" placeholder-style="color:#FFFFFF"/>
+			</view>
+			<view class="user-login remember">
+				<label class="radio">
+					<radio :checked="isRemember" @click="handleChangeRemeber"/><text>remember</text>
+				</label>
+			</view>
+			<view class="user-login login-btn" @click="checkLogin">
+				login
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -13,11 +27,40 @@
 	export default {
 		data() {
 			return {
-				
+				username:'',
+				password:'',
+				isRemember:false,
 			}
 		},
 		methods: {
-			
+			/**
+			 * @description  decide remember account and password
+			 * */
+			handleChangeRemeber(){
+				this.isRemember = !this.isRemember
+			},
+			/**
+			 * @description  post account and password  check in
+			 * */
+			async checkLogin(){
+				let res = await this.$uniCloud('login',{name:this.username,password:this.password})
+				console.log(res)
+				if(res.result.code == 0){
+					uni.showToast({
+						title:'success',
+						success() {
+							uni.navigateTo({
+								url:'../index/index'
+							})
+						}
+					})
+				}else {
+					uni.showToast({
+						title:res.result.msg,
+						icon:'none'
+					})
+				}
+			}
 		}
 	}
 </script>
@@ -45,7 +88,31 @@
 		align-items: center;
 		justify-content: center;
 		font-size: 4vh;
-		/* color: #505458; */
 		color: #FFFFFF;
+	}
+	.user-login {
+		height: 5vh;
+		margin-top: 2vh;
+		width: 100%;
+		color: #FFFFFF;
+		position: relative;
+	}
+	.user-login input {
+		height: 100%;
+		width: 100%;
+		font-size: 2vh;
+	}
+	.remember {
+		
+	}
+	.login-btn{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(255,255,255,0.4);
+		border-radius: 1vh;
+	}
+	.login-btn:hover {
+		background-color: rgba(255,255,255,0.5);
 	}
 </style>
