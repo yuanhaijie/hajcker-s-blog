@@ -19,6 +19,9 @@
 			<view class="user-login login-btn" @click="checkLogin">
 				login
 			</view>
+			<view class="user-login login-btn" @click="register">
+				register
+			</view>
 		</view>
 	</view>
 </template>
@@ -38,6 +41,14 @@
 			 * */
 			handleChangeRemeber(){
 				this.isRemember = !this.isRemember
+			},
+			/**
+			 * @description  navigateTo register page
+			 * */
+			register(){
+				uni.navigateTo({
+					url:'../register/register'
+				})
 			},
 			/**
 			 * @description  post account and password  check in
@@ -76,7 +87,7 @@
 	.login {
 		box-shadow: 0 0 20px 2px rgba(255,255,255,0.2);
 		width: 31vw;
-		height: 40vh;
+		min-height: 40vh;
 		padding: 5vh 1vw;
 		border-radius: 10px;
 		position: relative;

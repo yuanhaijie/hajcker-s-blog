@@ -16,7 +16,8 @@ exports.main = async (event, context) => {
 	}else {
 		return {
 			code:0,
-			msg:'success'
+			msg:'success',
+			data: user
 		}
 	}
 };
